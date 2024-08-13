@@ -3,20 +3,22 @@ public abstract class Vehicle
     public Vehicle(string number)
     {
         vehicleNumber = number;
-
     }
     string vehicleNumber;
-    public string vehicleNumber
+
+    public string VehicleNumber 
     {
         get => vehicleNumber;
-        set{
+        set
+        {
             if(value != "" && value.Length > 5)
-            vehicleNumber = value;
+                vehicleNumber = value;
         }
-
-
     }
+
     public string Brand { get; set; } = "";
     public DateTime Year { get; set; }
-    public VehicleType Type { get; set; } = VehicleType.Wa
+    public VehicleType Type { get; set; } = VehicleType.Wagon; 
+
+    //public float CalculateMileage() => 0.0f;
 }

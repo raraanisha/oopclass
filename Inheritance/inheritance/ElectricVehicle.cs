@@ -1,24 +1,33 @@
-public class ElectricVehicle : Vehicle, IVehicle
+public class ElectricVehicle: Vehicle, IVehicle
 {
-public ElectricVehicle(string number, short range, float batterycapacity)
-: base(number)
+    public ElectricVehicle(string number, short range, float batteryCapacity) : base (number)
+    {
+        BatteryCapacity = batteryCapacity;
+        Range = range;
+    }
+    public float BatteryCapacity { get; set; }
+    public short Range { get; set; }
 
-{
-    Range = range;
-    BatteryCapacity = batterycapacity;
+    public float GetDistanceCovered(float batteryUsedPercentage)
+    {
+        //total range //return distance / batteryUsedPercentage * 100;
+        //range per percentage //return distance / batteryUsedPercentage;
 
-}
+        //energy efficiency //return distance / (batteryUsedPercentage / 100) * BatteryCapacity;
 
-public float BatteryCapacity { get; set; }
-public short Range { get; set; }
+        // var batteryUsed = batteryUsedPercentage / 100 * BatteryCapacity;
+        // return distance / batteryUsed;
+        var  mileagePerBatteryUsed = Range/ 100 * batteryUsedPercentage;
+        return mileagePerBatteryUsed;
+    }
 
-public float GetDistanceCovered(float batteryUsedPercentage) => Range / 100 * batteryUsedPercentage;
-}
+    public float GetRange(float batteryCapacity, float energyEfficiency)
+    {
+        return batteryCapacity * energyEfficiency;
+    }
 
-
-public float GetMileage(float batteryUsedPercentage)
-{
-    Range / batteryUsedPercentage
-    return mileagePerPercent;
-}
+    public float GetEnergyEfficiency(float distance, float batteryUsed)
+    {
+        return distance / batteryUsed;
+    }
 }

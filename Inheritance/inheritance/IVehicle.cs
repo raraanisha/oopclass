@@ -1,5 +1,4 @@
-public interface IVehicle 
-
+public interface IVehicle
 {
-
+    public float GetDistanceCovered(float consumption);
 }
